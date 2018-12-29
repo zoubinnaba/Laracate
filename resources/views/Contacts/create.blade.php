@@ -6,7 +6,7 @@
    		<div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
    			<h2>Get In Touch</h2>
    			<p class="text-muted">If you having trouble with this service,please <a href="mailto:emmanuelzoubinnaba@gmail.com">Ask me question</a></p>
-   			<form action="{{ route('contact_path')}}" method="POST" novalidate="novalidate">
+   			<form action="{{ route('contact_path')}}" method="POST">
    				{{ csrf_field() }}
    			<div class="form-group {{ $errors->has('name') ? 'has-error' : ''}}">
    				<label for="name" class="control-label">Name</label>
