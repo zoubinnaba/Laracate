@@ -12,9 +12,7 @@ class CreateMessageCreated extends Mailable
     use Queueable, SerializesModels;
 
     public $name;
-
     public $email;
-
     public $msg;
 
     /**
@@ -36,6 +34,6 @@ class CreateMessageCreated extends Mailable
      */
     public function build()
     {
-        return $this->view('mails.messages.created');
+        return $this->markdown('emails.messages.created');
     }
 }

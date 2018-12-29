@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ContactRequest;
+use App\Mail\CreateMessageCreated;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class ContactsController extends Controller
 {
@@ -14,6 +16,10 @@ class ContactsController extends Controller
 
     public function store(ContactRequest $request)
     {
-		return new CreateMessageCreated($request->name, $request->email, $request->msg)
+    	$mailable = new CreateMessageCreated($request->name, $request->email, $request->msg);
+
+    	Mail::to('admin@laracarte.com')->send($mailable);
+
+    	return 'Done!';
     }
 }
